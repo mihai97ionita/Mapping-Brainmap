@@ -4,9 +4,6 @@ import sys
 import time
 import getopt
 
-#sa mearga cum e asa ( adica sa scrie intr-un fisier output -- nume utilizator si titlu proiect )
-
-
 def parse_content(field, text):
     files = []
     for file in os.listdir("jsons"):
@@ -18,7 +15,7 @@ def parse_content(field, text):
             data = json.load(f)
         except:
             continue
-        titlu = data[0]["titlu"]
+        titlu = data[0]["title"]
         print(f"{file}: {titlu}")
         
 
