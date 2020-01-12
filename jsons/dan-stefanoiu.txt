@@ -1,0 +1,21 @@
+[
+{
+    "title": "High-PErformance Computing of PersonAlized CaRdio-Vascular ComponenT Models  ",
+    "callName": "Joint Applied Research Projects - PCCA-2011 call, Type 2",
+    "codDepunere": "PN-II-PT-PCCA-2011-3.2-1229",
+    "anIncepere": "2012",
+    "anIncheiere": "2016",
+    "role": "",
+    "coordInstitution": "UNIVERSITATEA TRANSILVANIA BRASOV",
+    "projectPartners": "UNIVERSITATEA TRANSILVANIA BRASOV; SIEMENS SRL; UNIVERSITATEA POLITEHNICA DIN BUCURESTI; SPITALUL CLINIC DE URGENTA",
+    "affiliation": "UNIVERSITATEA POLITEHNICA DIN BUCURESTI",
+    "website": "http://heart.unitbv.ro",
+    "authorFirstName": "Dan",
+    "authorLastName": "Stefanoiu",
+    "authorPosition": "Professor, Dean",
+    "authorInstitution": "n/a",
+    "authorRoles": "Researcher | Teaching staff | Scientific reviewer",
+    "authorCountry": "Romania",
+    "abstract": "\nThe incidence of premature morbidity and mortality for Coronary Artery Disease patients is still very high,the main reason being the lack of accurate in-vivo and in-vitro patient-specific estimates for diagnosis and progression of the disease.For example,in the case of coronary stenosis, accurate estimates of the anantomy as seen in the diagnostic images,can vastly underestimate or overestimate the severity of the blockage.For a functional assessment of such a blockage,analysis of the subsequent disease progression and assessment of the best intervention/surgical option for an individual patient,it is important to incorporate multi-faceted information from the hemodynamics and cellular mechanisms from multiple scales.Incorporating such multi-scale information in a complex computational model has been difficult in the past due to the high computational demands therefore it is important to enable such simulations on High Performance Computing(HPC)platforms.\r\nHEART wants:\r\n-To develop,integrate and validate patient-specific multi-scale computational models with high predictive power for coronary circulation in healthy and diseased vessels:\r\n \u2022Comprehensive modeling of the anatomical,hemodynamic and cellular phenomenon in coronary circulation\r\n \u2022Efficient multi-scale coupling with the state-of-the-art heart models for advanced patient-specific simulations\r\n \u2022Assessment of functional parameters and subsequent validation of the models.\r\n-To improve the clinical management of coronary artery disease by leveraging the computational models to create specific therapeutic interventions:\r\n \u2022Simulation based methods for intervention planning(virtual stenting, angioplasty and Coronary Artery Bypass Graft) using computational models.\r\n \u2022HPC architecture for efficiently addressing the multi-scale complexity, a critical requirement for translation into clinical decision making; Comparative analysis of the potential implementations: GPUvsCluster based platforms. \n"
+}
+]

@@ -1,6 +1,9 @@
 import requests
 from bs4 import BeautifulSoup
 import json
+import os
+
+
 class Project:
     title= ""
     callName=""
@@ -54,12 +57,15 @@ class Project:
         self.authorRoles = authorRoles
         self.authorCountry = authorCountry
         self.abstract=abstract
+
     def toJSON(self):
         return json.dumps(self, default=lambda o: o.__dict__,
             sort_keys=False, indent=4)
+
 urls = []
 with open('links.txt', 'r') as links:
     urls=links.readlines()
+
 for url in urls:
     url = url.replace('\n','')
     name = url.split("/")[-1]
@@ -69,34 +75,34 @@ for url in urls:
     projectList=[]
     tmp = ""
     if soup.find(class_='profile-dash col-md-9').h3.find( 'label', {"a:localid": "firstName"}) is not None:
-        authorFirstName = soup.find(class_='profile-dash col-md-9').h3.find( 'label', {"a:localid": "firstName"}).get_text()
+        authorFirstName = soup.find(class_='profile-dash col-md-9').h3.find( 'label', {"a:localid": "firstName"}).get_text().replace("\n", " ").replace("\r","").replace("\t","")
 
     if soup.find(class_='profile-dash col-md-9').h3.find( 'label', {"a:localid": "lastName"}) is not None:
-        authorLastName = soup.find(class_='profile-dash col-md-9').h3.find( 'label', {"a:localid": "lastName"}).get_text()
+        authorLastName = soup.find(class_='profile-dash col-md-9').h3.find( 'label', {"a:localid": "lastName"}).get_text().replace("\n", " ").replace("\r","").replace("\t","")
 
     if soup.find(class_='profile-dash col-md-9').h5.find('label',{"a:localid":"instPosition"}) is not None:
-        authorPosition = soup.find(class_='profile-dash col-md-9').h5.find('label',{"a:localid":"instPosition"}).get_text()
+        authorPosition = soup.find(class_='profile-dash col-md-9').h5.find('label',{"a:localid":"instPosition"}).get_text().replace("\n", " ").replace("\r","").replace("\t","")
 
     if soup.find(class_='profile-dash col-md-9').h5.find('label',{"a:localid":"instNume"}) is not None:
-        authorInstitution = soup.find(class_='profile-dash col-md-9').h5.find('label',{"a:localid":"instNume"}).get_text()
+        authorInstitution = soup.find(class_='profile-dash col-md-9').h5.find('label',{"a:localid":"instNume"}).get_text().replace("\n", " ").replace("\r","").replace("\t","")
     if soup.find(class_='roles-list')is not None:
         if soup.find(class_='roles-list').find('label',{"a:localid":"roles"})is not None:
-            authorRoles = soup.find(class_='roles-list').find('label',{"a:localid":"roles"}).get_text().replace(' ','').split("|")
+            authorRoles = soup.find(class_='roles-list').find('label',{"a:localid":"roles"}).get_text()
 
     if soup.find(class_='profile-lowInfo').find('label',{"a:localid":"idTaraLucru"})is not None:
-        authorCountry = soup.find(class_='profile-lowInfo').find('label',{"a:localid":"idTaraLucru"}).get_text()
+        authorCountry = soup.find(class_='profile-lowInfo').find('label',{"a:localid":"idTaraLucru"}).get_text().replace("\n", " ").replace("\r","").replace("\t","")
 
     for i in range(0,lenProject):
-        title=soup.find_all(class_='table-validate-projects')[i].find('label', class_='pTitlu').get_text()
-        callName=soup.find_all(class_='table-validate-projects')[i].find('div',class_='project-title').find('span').find('label').get_text()
-        codDepunere=soup.find_all(class_='table-validate-projects')[i].find('span',class_='projectID').find('label').get_text()
-        anIncepere=soup.find_all(class_='table-validate-projects')[i].find_all('span',class_='projectID')[1].label.get_text()
-        anIncheiere=soup.find_all(class_='table-validate-projects')[i].find_all('span',class_='projectID')[1].find_all('label')[1].get_text()
-        role=soup.find_all(class_='table-validate-projects')[i].find('span',class_='option-title').label.get_text()
-        coordInstitution=soup.find_all(class_='table-validate-projects')[i].find_all('div',class_='project-info row')[1].label.get_text()
-        projectPartners=soup.find_all(class_='table-validate-projects')[i].find_all('div',class_='project-info row')[2].label.get_text()
-        affiliation=soup.find_all(class_='table-validate-projects')[i].find_all('div',class_='project-info row')[3].label.get_text()
-        website=soup.find_all(class_='table-validate-projects')[i].find_all('div',class_='project-info row')[4].a.get_text()
+        title=soup.find_all(class_='table-validate-projects')[i].find('label', class_='pTitlu').get_text().replace("\n", " ").replace("\r","").replace("\t","")
+        callName=soup.find_all(class_='table-validate-projects')[i].find('div',class_='project-title').find('span').find('label').get_text().replace("\n", " ").replace("\r","").replace("\t","")
+        codDepunere=soup.find_all(class_='table-validate-projects')[i].find('span',class_='projectID').find('label').get_text().replace("\n", " ").replace("\r","").replace("\t","")
+        anIncepere=soup.find_all(class_='table-validate-projects')[i].find_all('span',class_='projectID')[1].label.get_text().replace("\n", " ").replace("\r","").replace("\t","")
+        anIncheiere=soup.find_all(class_='table-validate-projects')[i].find_all('span',class_='projectID')[1].find_all('label')[1].get_text().replace("\n", " ").replace("\r","").replace("\t","")
+        role=soup.find_all(class_='table-validate-projects')[i].find('span',class_='option-title').label.get_text().replace("\n", " ").replace("\r","").replace("\t","")
+        coordInstitution=soup.find_all(class_='table-validate-projects')[i].find_all('div',class_='project-info row')[1].label.get_text().replace("\n", " ").replace("\r","").replace("\t","")
+        projectPartners=soup.find_all(class_='table-validate-projects')[i].find_all('div',class_='project-info row')[2].label.get_text().replace("\n", " ").replace("\r","").replace("\t","")
+        affiliation=soup.find_all(class_='table-validate-projects')[i].find_all('div',class_='project-info row')[3].label.get_text().replace("\n", " ").replace("\r","").replace("\t","")
+        website=soup.find_all(class_='table-validate-projects')[i].find_all('div',class_='project-info row')[4].a.get_text().replace("\n", " ").replace("\r","").replace("\t","")
         abstract=soup.find_all(class_='table-validate-projects')[i].find_all('div',class_='project-info row')[5].find('div',class_='expand').get_text()
         newProject=Project(title,
                            callName,
@@ -122,6 +128,10 @@ for url in urls:
         JSON=JSON+str(x.toJSON())+",\n"
     JSON=JSON[:-2]+"\n]"
     #print(JSON)
+
+    if not os.path.isdir(f'jsons'):
+        os.makedirs(f'jsons')
+
     with open(f'jsons//{name}.txt', 'w') as outfile:
         outfile.write(JSON)
     print(f'{name} descarcat')
